@@ -12,6 +12,8 @@ modskurtp1d0r05 <- function(x, H, m, s) {
   modskurt_meanfunction(x, H, m, s, 0.5, 0, 1)
 }
 
+
+
 #' Symmetric Modskurt with varying flattening / peakedness
 #'
 #' @param x Environmental variable
@@ -86,3 +88,15 @@ modskurt <- function(x, H, m, s, r, d, p) {
   H / (r * exp(((x - m)/(r * s) - d) / p) +
          (1 - r) * exp(- ((x - m)/((1 - r) * s) + d) / p) - exp(- d / p) + 1) ^ p
 }
+
+#' Modskurt Stan Code
+#'
+#' Stan code for the full modskurt function
+#'
+#' @usage NULL
+#' @format NULL
+#' @export
+#'
+#' @examples
+#' cat(modskurt[["source_code"]])
+modskurt_stan <- get_stan_function("modskurt")
