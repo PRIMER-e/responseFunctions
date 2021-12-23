@@ -1,2 +1,34 @@
 url: https://primer-e.github.io/responseFunctions
-
+template:
+  bootstrap: 5
+reference:
+  - title: "Modskurt"
+    desc: "Full modskurt function"
+  - contents:
+    - modskurt
+    - modskurt_stan
+  - title: "Modskurt (p = 1, d = 0, r = 0.5)"
+    desc: "Symmetric modskurt"
+  - contents:
+    - modskurtp1d0r05
+    - modskurtp1d0r05_stan
+  - title: "Modskurt (p = 1, r = 0.5)"
+    desc: "Symmetric Modskurt with varying flattening / peakedness"
+  - contents:
+    - modskurtp1r05
+    - modskurtp1r05_stan
+  - title: "Modskurt (p = 1, d = 0)"
+    desc: "Asymmetric modskurt"
+  - contents:
+    - modskurtp1d0
+    - modskurtp1d0_stan
+  - title: "Modskurt (p = 1)"
+    desc: "Modskurt with Asymmetry and varied flattening / peakedness."
+  - contents:
+    - modskurtp1
+    - modskurtp1_stan
+  - title: "Modskurt (d = 0)"
+    desc: "Modskurt with asymmetry allowing \"exaggeration\" / large tails"
+  - contents:
+    - modskurtd0
+    - modskurtd0_stan
