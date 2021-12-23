@@ -9,7 +9,7 @@
 #' @return Value at x, given the other parameters.
 #' @export
 modskurtp1d0r05 <- function(x, H, m, s) {
-  modskurt_meanfunction(x, H, m, s, 0.5, 0, 1)
+  modskurt(x, H, m, s, 0.5, 0, 1)
 }
 
 
@@ -25,7 +25,7 @@ modskurtp1d0r05 <- function(x, H, m, s) {
 #' @return Value at x, given the other parameters.
 #' @export
 modskurtp1r05 <- function(x, H, m, s, d) {
-  modskurt_meanfunction(x, H, m, s, 0.5, d, 1)
+  modskurt(x, H, m, s, 0.5, d, 1)
 }
 
 #' Asymetric Modskurt
@@ -39,7 +39,7 @@ modskurtp1r05 <- function(x, H, m, s, d) {
 #' @return Value at x, given the other parameters.
 #' @export
 modskurtp1d0 <- function(x, H, m, s, r) {
-  modskurt_meanfunction(x, H, m, s, r, 0, 1)
+  modskurt(x, H, m, s, r, 0, 1)
 }
 
 #' Asymetric with varied flattening / peakedness
@@ -54,7 +54,7 @@ modskurtp1d0 <- function(x, H, m, s, r) {
 #' @return Value at x, given the other parameters.
 #' @export
 modskurtp1 <- function(x, H, m, s, r, d) {
-  modskurt_meanfunction(x, H, m, s, r, d, 1)
+  modskurt(x, H, m, s, r, d, 1)
 }
 
 #' Asymetric allowing "exaggeration" / large tails
@@ -69,7 +69,7 @@ modskurtp1 <- function(x, H, m, s, r, d) {
 #' @return Value at x, given the other parameters.
 #' @export
 modskurtd0 <- function (x, H, m, s, r, p) {
-  modskurt_meanfunction(x, H, m, s, r, 0, p);
+  modskurt(x, H, m, s, r, 0, p);
 }
 
 #' Full modskurt
@@ -98,5 +98,5 @@ modskurt <- function(x, H, m, s, r, d, p) {
 #' @export
 #'
 #' @examples
-#' cat(modskurt[["source_code"]])
+#' cat(modskurt_stan[["source_code"]])
 modskurt_stan <- get_stan_function("modskurt")

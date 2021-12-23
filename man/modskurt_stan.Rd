@@ -8,6 +8,6 @@
 Stan code for the full modskurt function
 }
 \examples{
-cat(modskurt[["source_code"]])
+cat(modskurt_stan[["source_code"]])
 }
 \keyword{datasets}
