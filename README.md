@@ -4,6 +4,8 @@
 # responseFunctions
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/PRIMER-e/responseFunctions/workflows/R-CMD-check/badge.svg)](https://github.com/PRIMER-e/responseFunctions/actions)
 <!-- badges: end -->
 
 The goal of responseFunctions is to …
