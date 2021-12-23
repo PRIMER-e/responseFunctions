@@ -16,5 +16,6 @@ Imports:
     methods,
     readr
 Suggests: 
+    rstan,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
