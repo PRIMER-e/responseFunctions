@@ -1,9 +1,11 @@
 Package: responseFunctions
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+Authors@R: c( 
+        person("Andrew", "Punnett", , "andrew@primer-e.co.nz", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+        person("PRIMER-e", role = c("cph", "fnd"))
+    )
 Description: What the package does (one paragraph).
 License: file LICENSE
 Encoding: UTF-8
