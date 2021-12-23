@@ -9,7 +9,7 @@
 <!-- badges: end -->
 
 The goal of responseFunctions is to provide a set of useful non-linear
-response functions.
+response functions with both R source-code and Stan source-code.
 
 ## Installation
 

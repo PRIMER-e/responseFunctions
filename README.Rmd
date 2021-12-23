@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/PRIMER-e/responseFunctions/workflows/R-CMD-check/badge.svg)](https://github.com/PRIMER-e/responseFunctions/actions)
 <!-- badges: end -->
 
-The goal of responseFunctions is to provide a set of useful non-linear response functions.
+The goal of responseFunctions is to provide a set of useful non-linear response functions with both R source-code and Stan source-code.
 
 ## Installation
 
