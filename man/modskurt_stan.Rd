@@ -3,7 +3,7 @@
 \docType{data}
 \name{modskurt_stan}
 \alias{modskurt_stan}
-\title{Modskurt Stan Code}
+\title{Full modskurt Stan code}
 \description{
 Stan code for the full modskurt function
 }

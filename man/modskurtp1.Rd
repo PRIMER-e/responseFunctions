@@ -2,7 +2,7 @@
 % Please edit documentation in R/modskurt.R
 \name{modskurtp1}
 \alias{modskurtp1}
-\title{Asymetric with varied flattening / peakedness}
+\title{Modskurt with Asymmetry and varied flattening / peakedness.}
 \usage{
 modskurtp1(x, H, m, s, r, d)
 }
@@ -23,5 +23,5 @@ modskurtp1(x, H, m, s, r, d)
 Value at x, given the other parameters.
 }
 \description{
-Asymetric with varied flattening / peakedness
+Modskurt with Asymmetry and varied flattening / peakedness.
 }

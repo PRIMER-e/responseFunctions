@@ -2,7 +2,7 @@
 % Please edit documentation in R/modskurt.R
 \name{modskurtd0}
 \alias{modskurtd0}
-\title{Asymetric allowing "exaggeration" / large tails}
+\title{Modskurt with asymmetry allowing "exaggeration" / large tails}
 \usage{
 modskurtd0(x, H, m, s, r, p)
 }
@@ -23,5 +23,5 @@ modskurtd0(x, H, m, s, r, p)
 Value at x, given the other parameters.
 }
 \description{
-Asymetric allowing "exaggeration" / large tails
+Modskurt with asymmetry allowing "exaggeration" / large tails
 }
