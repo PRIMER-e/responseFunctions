@@ -1,6 +1,4 @@
 url: https://primer-e.github.io/responseFunctions
-template:
-  bootstrap: 5
 reference:
   - title: "Modskurt"
     desc: "Full modskurt function"
