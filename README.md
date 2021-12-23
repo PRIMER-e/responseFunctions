@@ -31,9 +31,9 @@ library(responseFunctions)
 modskurt(x = 500,
          H = 1000,
          m = 750,
-         s = 200,
+         s = 20,
          r = 0.75,
          d = 50,
          p = 1)
-#> [1] 1000
+#> [1] 800
 ```
