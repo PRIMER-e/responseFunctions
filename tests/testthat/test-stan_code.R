@@ -13,6 +13,7 @@ if (requireNamespace("rstan", quietly = TRUE)) {
                            modskurtp1d0_stan[["source_code"]],
                            modskurtp1r05_stan[["source_code"]],
                            modskurtp1d0r05_stan[["source_code"]],
+                           mixgaussian_stan[["source_code"]],
                            "}\n",
                            sep = "\n")
 
@@ -31,6 +32,7 @@ if (requireNamespace("rstan", quietly = TRUE)) {
     expect_true("modskurtp1d0" %in% function_names)
     expect_true("modskurtp1d0r05" %in% function_names)
     expect_true("modskurtp1r05" %in% function_names)
+    expect_true("mixgaussian" %in% function_names)
   })
 
   test_that("Stan modskurt matches R modskurt", {
@@ -63,6 +65,23 @@ if (requireNamespace("rstan", quietly = TRUE)) {
       expect_equal(stan_function_env[["modskurtp1r05"]](x[[i]], H[[i]], m[[i]], s[[i]], d[[i]]),
                      modskurtp1r05(x[[i]], H[[i]], m[[i]], s[[i]], d[[i]]))
 
+    }
+  })
+
+  test_that("Stan mixgaussian matches R mixgaussian", {
+    num_tests = 100
+
+    x = runif(n = num_tests, min = 0, max = 1000)
+    H1 = runif(n = num_tests, min = 0.1, max = 100)
+    H2 = runif(n = num_tests, min = 0.1, max = 100)
+    m1 = runif(n = num_tests, min = 0, max = 1000)
+    m2 = runif(n = num_tests, min = 0, max = 1000)
+    s1 = runif(n = num_tests, min = 0.1, max = 10)
+    s2 = runif(n = num_tests, min = 0.1, max = 10)
+
+    for (i in 1:100) {
+        expect_equal(stan_function_env[["mixgaussian"]](x[[i]], H1[[i]], H2[[i]], m1[[i]], m2[[i]], s1[[i]], s2[[i]]),
+                     mixgaussian(x[[i]], H1[[i]], H2[[i]], m1[[i]], m2[[i]], s1[[i]], s2[[i]]))
     }
   })
 }
