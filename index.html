@@ -59,7 +59,6 @@
 <div class="page-header"><h1 id="responsefunctions">responseFunctions<a class="anchor" aria-label="anchor" href="#responsefunctions"></a>
 </h1></div>
 <!-- badges: start -->
-
 <p>The goal of responseFunctions is to provide a set of useful non-linear response functions with both R source-code and Stan source-code.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -72,17 +71,36 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>This is a basic example which shows you how to call both the R version and Stan version of the ModSkurt function:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://primer-e.github.io/responseFunctions">responseFunctions</a></span><span class="op">)</span>
 
-<span class="fu"><a href="reference/modskurt.html">modskurt</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">500</span>,
-         H <span class="op">=</span> <span class="fl">1000</span>,
-         m <span class="op">=</span> <span class="fl">750</span>,
-         s <span class="op">=</span> <span class="fl">20</span>,
-         r <span class="op">=</span> <span class="fl">0.75</span>,
-         d <span class="op">=</span> <span class="fl">50</span>,
-         p <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">500</span>
+<span class="va">H</span> <span class="op">&lt;-</span> <span class="fl">1000</span>
+<span class="va">m</span> <span class="op">&lt;-</span> <span class="fl">750</span>
+<span class="va">s</span> <span class="op">&lt;-</span> <span class="fl">20</span>
+<span class="va">r</span> <span class="op">&lt;-</span> <span class="fl">0.75</span>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">50</span>
+<span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+
+<span class="co"># Call the R version of ModSkurt.</span>
+<span class="fu"><a href="reference/modskurt.html">modskurt</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">H</span>, <span class="va">m</span>, <span class="va">s</span>, <span class="va">r</span>, <span class="va">d</span>, <span class="va">p</span><span class="op">)</span>
+<span class="co">#&gt; [1] 800</span>
+ 
+<span class="co"># Create a Stan model containing ModSkurt.</span>
+<span class="va">stan_model_code</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"functions {"</span>,
+                           <span class="va">modskurt_stan</span><span class="op">[[</span><span class="st">"source_code"</span><span class="op">]</span><span class="op">]</span>,
+                           <span class="st">"}"</span><span class="op">)</span>
+
+<span class="co"># Compile the Stan model.</span>
+<span class="va">model_listing</span> <span class="op">&lt;-</span> <span class="fu">rstan</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/rstan/reference/stanc.html" class="external-link">stanc</a></span><span class="op">(</span>model_code <span class="op">=</span> <span class="va">stan_model_code</span><span class="op">)</span>
+
+<span class="co"># Expose the Stan ModSkurt function in the compiled model.</span>
+<span class="va">stan_function_env</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">rstan</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/rstan/reference/expose_stan_functions.html" class="external-link">expose_stan_functions</a></span><span class="op">(</span><span class="va">model_listing</span>, env <span class="op">=</span> <span class="va">stan_function_env</span><span class="op">)</span>
+
+<span class="co"># Call the Stan version of ModSkurt.</span>
+<span class="va">stan_function_env</span><span class="op">[[</span><span class="st">"modskurt"</span><span class="op">]</span><span class="op">]</span><span class="op">(</span><span class="va">x</span>, <span class="va">H</span>, <span class="va">m</span>, <span class="va">s</span>, <span class="va">r</span>, <span class="va">d</span>, <span class="va">p</span><span class="op">)</span>
 <span class="co">#&gt; [1] 800</span></code></pre></div>
 </div>
 </div>
@@ -131,7 +149,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
