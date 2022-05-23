@@ -30,3 +30,8 @@ reference:
   - contents:
     - modskurtd0
     - modskurtd0_stan
+  - title: "MixGaussian"
+    desc: "Mixture of two Gaussian functions"
+  - contents:
+    - mixgaussian
+    - mixgaussian_stan
